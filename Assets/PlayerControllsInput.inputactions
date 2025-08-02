@@ -1,0 +1,210 @@
+{
+    "name": "PlayerControllsInput",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "ed231c48-b3fe-4999-9cfa-c258c36b3afb",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Button",
+                    "id": "9169bc46-6e5e-46a1-8da0-37b2051c96ba",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "505182b7-e7b9-40bd-87f0-816e6c588a03",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "6d3e65e9-1e99-4e75-8cc1-5d3be2997c98",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeWeapon",
+                    "type": "Value",
+                    "id": "cf2d44f7-3a12-4aed-a57d-11340085d6c9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4de3a151-33c1-4b90-b53b-5985c7aaf4c2",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "706df95d-2a65-441a-8bcd-12e1b4bc468e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57b39377-f3e8-4475-8406-da3eb2f4543f",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d3173502-1f4b-4d14-9643-ca29817b198d",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Weapon",
+            "id": "4d2b6d3e-a651-44a4-94af-f82744346b41",
+            "actions": [
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "c05b432b-5721-4f13-9f7b-7b69e3cc1bc5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "3bab6013-26e2-41a2-a092-da8d0e15103a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Aim",
+                    "type": "Button",
+                    "id": "9e8b207a-e2ed-4f93-841a-0c09688dbfab",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "93ee4bae-b1e5-4af0-a9d0-cb00373a41a1",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49c29191-3c8e-404b-ab09-011ead00259d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1019b3f4-9f39-419e-b924-f77f1bfce50b",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "a2e45671-7a7b-4601-8e0d-ee5132e1b06d",
+            "actions": [
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "af39cff1-4159-4323-813b-5766bb6f0c66",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "cfc79279-c0da-4199-9938-de4a2799f27b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0465e4b0-d027-4093-9f3a-b1c04dfeb2d4",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "562f3062-09a2-48bb-aa3d-5e0e8a9c5e27",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -1,0 +1,7 @@
+{
+    "dotrush.roslyn.projectOrSolutionFiles": [
+        "d:\\Unity\\Projects\\DontFallBehind\\Don't Fall Behind\\Don't Fall Behind.sln",
+        "d:\\Unity\\Projects\\DontFallBehind\\Don't Fall Behind\\Assembly-CSharp.csproj"
+    ],
+    "dotnet.preferCSharpExtension": true
+}
