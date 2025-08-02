@@ -38,6 +38,10 @@ public class TouristController : MonoBehaviour
     [SerializeField] private float maxSlopeAngle = 45f;
     [SerializeField] public bool isInWinZone;
 
+    [Header("TouristHUD")]
+    [SerializeField] GameObject questionMarks;
+    [SerializeField] GameObject dead;
+
     private bool isFollowing = false;
     [SerializeField] private bool isFalling = false;  // Estado del ragdoll, si está cayendo o no
     [SerializeField] private bool hasFallen = false;  // Estado del ragdoll, si se cayó y está esperando resurrección
@@ -84,7 +88,9 @@ public class TouristController : MonoBehaviour
     {
         isRagStopped = IsRagdollStopped();
 
-        if (isFalling || playerTarget == null) return;
+        if (isFalling || playerTarget == null || dead.activeInHierarchy) return;
+
+        if(gameObject.transform.position.y<-200 || ragdollRootBone.transform.position.y<-200) Death();
 
         // Verificar si el ragdoll ha caído y está detenido
         if (hasFallen && IsRagdollStopped() && !isBeingGrabbed)
@@ -201,6 +207,9 @@ public class TouristController : MonoBehaviour
     {
         if (navAgent == null) return;
 
+        questionMarks.SetActive(false);
+        dead.SetActive(false);  
+
         // Resume NavMeshAgent
         navAgent.isStopped = false;
 
@@ -253,6 +262,8 @@ public class TouristController : MonoBehaviour
 
     void SetIdleAnimation(bool isIdle)
     {
+        questionMarks.SetActive(false);
+        dead.SetActive(false);
         if (animator != null)
         {
             animator.SetBool(idleParameter, isIdle);
@@ -263,6 +274,11 @@ public class TouristController : MonoBehaviour
 
     void SetLookingAnimation(bool isLooking)
     {
+        if (!dead.activeInHierarchy)
+        {
+            questionMarks.SetActive(true);
+        }
+
         if (animator != null)
         {
             animator.SetBool(lookingParameter, isLooking);
@@ -308,6 +324,13 @@ public class TouristController : MonoBehaviour
                 rb.AddForce(gravityForce, ForceMode.Acceleration);
             }
         }
+    }
+    public void Death() {
+        if (dead.activeInHierarchy) return;
+
+        SetLayerRecursively(gameObject, 10);
+        ragdollController.SetEnabled(true);
+        dead.SetActive(true);
     }
 
     public void Resurrect()
