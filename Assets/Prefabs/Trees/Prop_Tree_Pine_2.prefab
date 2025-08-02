@@ -135,21 +135,21 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2641703721275584780}
     - renderer: {fileID: 6474811605970164749}
-    - renderer: {fileID: 2087340050844622106}
     - renderer: {fileID: 9056805984524679761}
+    - renderer: {fileID: 2087340050844622106}
     - renderer: {fileID: 8142235907770241123}
   - screenRelativeHeight: 0.3
     fadeTransitionWidth: 0
     renderers:
-    - renderer: {fileID: 8142235907770241123}
+    - renderer: {fileID: 2641703721275584780}
     - renderer: {fileID: 6474811605970164749}
-    - renderer: {fileID: 2087340050844622106}
     - renderer: {fileID: 9056805984524679761}
+    - renderer: {fileID: 2087340050844622106}
   - screenRelativeHeight: 0.1
     fadeTransitionWidth: 0
     renderers:
+    - renderer: {fileID: 2641703721275584780}
     - renderer: {fileID: 6474811605970164749}
-    - renderer: {fileID: 2087340050844622106}
     - renderer: {fileID: 9056805984524679761}
   m_Enabled: 1
 --- !u!23 &6474811605970164749 stripped

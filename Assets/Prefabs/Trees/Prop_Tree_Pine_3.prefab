@@ -129,18 +129,19 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 358143561555396532}
-    - renderer: {fileID: 7331829487399198975}
     - renderer: {fileID: 4743697531861321379}
     - renderer: {fileID: 4370442814834944930}
+    - renderer: {fileID: 7331829487399198975}
   - screenRelativeHeight: 0.3
     fadeTransitionWidth: 0
     renderers:
-    - renderer: {fileID: 7331829487399198975}
+    - renderer: {fileID: 358143561555396532}
     - renderer: {fileID: 4743697531861321379}
     - renderer: {fileID: 4370442814834944930}
   - screenRelativeHeight: 0.1
     fadeTransitionWidth: 0
     renderers:
+    - renderer: {fileID: 358143561555396532}
     - renderer: {fileID: 4743697531861321379}
     - renderer: {fileID: 4370442814834944930}
   m_Enabled: 1
