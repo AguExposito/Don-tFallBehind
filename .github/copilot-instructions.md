@@ -1,8 +1,8 @@
 <!-- UNITY CODE ASSIST INSTRUCTIONS START -->
-- Project name: Don't Fall Behind
+- Project name: Don-tFallBehind
 - Unity version: Unity 6000.0.32f1
 - Active game object:
-  - Name: T1Icon
+  - Name: RIgged Character
   - Tag: Untagged
-  - Layer: Player
+  - Layer: NPC
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
