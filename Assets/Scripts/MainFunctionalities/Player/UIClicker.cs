@@ -11,7 +11,7 @@ public class UIClicker : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // o usá otro input si preferís
+        if (Input.GetMouseButtonDown(0)) // o usï¿½ otro input si preferï¿½s
         {
             PointerEventData pointerData = new PointerEventData(eventSystem);
             pointerData.position = new Vector2(Screen.width / 2, Screen.height / 2); // centro de la pantalla
@@ -19,13 +19,14 @@ public class UIClicker : MonoBehaviour
             List<RaycastResult> results = new List<RaycastResult>();
             raycaster.Raycast(pointerData, results);
 
+            Debug.Log("Results: " + results.Count);
             foreach (RaycastResult result in results)
             {
                 Button btn = result.gameObject.GetComponent<Button>();
                 if (btn != null)
                 {
                     btn.onClick.Invoke(); // ejecuta el click
-                    Debug.Log("Botón clickeado: " + btn.name);
+                    Debug.Log("Botï¿½n clickeado: " + btn.name);
                     break;
                 }
             }
