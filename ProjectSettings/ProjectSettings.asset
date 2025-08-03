@@ -20,7 +20,7 @@ PlayerSettings:
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
-  m_SplashScreenAnimation: 2
+  m_SplashScreenAnimation: 1
   m_SplashScreenLogoStyle: 1
   m_SplashScreenDrawMode: 1
   m_SplashScreenBackgroundAnimationZoom: 1
@@ -45,7 +45,7 @@ PlayerSettings:
   - logo: {fileID: 21300000, guid: 64e1c11a5ea1f66438c9b6b33d803494, type: 3}
     duration: 2
   - logo: {fileID: 21300000, guid: 15bb42783c44b8345a7b96e1de5c7d1e, type: 3}
-    duration: 2
+    duration: 2.5
   m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 15bb42783c44b8345a7b96e1de5c7d1e, type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -170,10 +170,10 @@ PlayerSettings:
   androidMinAspectRatio: 1
   applicationIdentifier:
     Android: com.UnityTechnologies.com.unity.template.urpblank
-    Standalone: com.Unity-Technologies.com.unity.template.urp-blank
+    Standalone: com.PAIN.DontFallBehind
     iPhone: com.Unity-Technologies.com.unity.template.urp-blank
   buildNumber:
-    Standalone: 0
+    Standalone: 0.1.0
     VisionOS: 0
     iPhone: 0
     tvOS: 0
