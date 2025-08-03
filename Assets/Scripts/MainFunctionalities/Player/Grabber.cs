@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class Grabber : MonoBehaviour
 {
-    public Transform grabPoint;  // Un empty frente a la c�mara
+    public Transform grabPoint;  // Un empty frente a la cámara
     public float grabRange = 5f;
     [SerializeField] private float maxThrowSpeed = 5f;
     [SerializeField] private float maxAngularSpeed = 5f;
@@ -11,9 +11,30 @@ public class Grabber : MonoBehaviour
 
     public LayerMask touristLayer;
 
+    // Audio references
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip grabSound;
+    [SerializeField] private AudioClip releaseSound;
+    [SerializeField] private AudioClip throwSound;
+    [SerializeField] private AudioClip grabFailSound;
+
     private Rigidbody grabbedRigidbody;
     private ConfigurableJoint grabJoint;
     private TouristController touristController;
+
+    void Start()
+    {
+        // Auto-assign AudioSource if not set
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+        }
+    }
 
     void Update()
     {
@@ -50,7 +71,7 @@ public class Grabber : MonoBehaviour
                 touristController.isBeingGrabbed = true;  // Detener el NavMeshAgent del ragdoll
                 touristController.SetLayerRecursively(touristController.gameObject,9);  // Detener el NavMeshAgent del ragdoll
 
-                // Aseg�rate de que el grabPoint tenga un Rigidbody y ConfigurableJoint
+                // Asegúrate de que el grabPoint tenga un Rigidbody y ConfigurableJoint
                 Rigidbody grabPointRb = grabPoint.GetComponent<Rigidbody>();
                 if (grabPointRb == null)
                 {
@@ -58,7 +79,7 @@ public class Grabber : MonoBehaviour
                     grabPointRb.isKinematic = true;
                 }
 
-                // Aqu� agregamos el ConfigurableJoint al grabPoint si no lo tiene
+                // Aquí agregamos el ConfigurableJoint al grabPoint si no lo tiene
                 grabJoint = grabPoint.GetComponent<ConfigurableJoint>();
 
                 if (grabJoint == null)
@@ -69,7 +90,7 @@ public class Grabber : MonoBehaviour
                 // Conectar el grabPoint con el ragdoll
                 grabJoint.connectedBody = grabbedRigidbody;
 
-                // Configuraci�n de movimiento
+                // Configuración de movimiento
                 grabJoint.xMotion = ConfigurableJointMotion.Limited;
                 grabJoint.yMotion = ConfigurableJointMotion.Limited;
                 grabJoint.zMotion = ConfigurableJointMotion.Limited;
@@ -78,21 +99,29 @@ public class Grabber : MonoBehaviour
                 grabJoint.angularYMotion = ConfigurableJointMotion.Limited;
                 grabJoint.angularZMotion = ConfigurableJointMotion.Limited;
 
-                // Ajuste de las restricciones (como la distancia m�xima)
+                // Ajuste de las restricciones (como la distancia máxima)
                 SoftJointLimit limit = new SoftJointLimit();
-                limit.limit = 0.5f;  // Distancia m�xima de movimiento
+                limit.limit = 0.5f;  // Distancia máxima de movimiento
                 grabJoint.linearLimit = limit;
-                //Invoke("ApplyBreakForce", 0.1f);  // Aplicar fuerza de ruptura despu�s de un breve retraso
+                //Invoke("ApplyBreakForce", 0.1f);  // Aplicar fuerza de ruptura después de un breve retraso
 
                 // Opcional: Debug
                 Debug.Log("ConfigurableJoint creado y conectado entre grabPoint y ragdoll.");
+                
+                // Play grab sound
+                PlaySound(grabSound);
             }
+        }
+        else
+        {
+            // Play grab fail sound when trying to grab but nothing is in range
+            PlaySound(grabFailSound);
         }
     }
 
     void ApplyBreakForce() {
         // Ajustar las fuerzas de ruptura
-        grabJoint.breakForce = 10000f;  // Fuerza alta para evitar ruptura instant�nea
+        grabJoint.breakForce = 10000f;  // Fuerza alta para evitar ruptura instantánea
         grabJoint.breakTorque = 10000f;
     }
 
@@ -117,6 +146,14 @@ public class Grabber : MonoBehaviour
             {
                 float boostMultiplier = 1.5f;
                 releaseVelocity *= boostMultiplier;
+                
+                // Play throw sound
+                PlaySound(throwSound);
+            }
+            else
+            {
+                // Play release sound
+                PlaySound(releaseSound);
             }
 
             // Limitar la magnitud final
@@ -141,5 +178,11 @@ public class Grabber : MonoBehaviour
         }
     }
 
-
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+    }
 }
