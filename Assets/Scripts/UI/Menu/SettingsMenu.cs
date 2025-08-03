@@ -55,6 +55,6 @@ public class Settings
 {
     public static int graphicQuality;
     public static float volumeLevel = 0.7f;
-    public static bool isLowRes = true;
+    public static bool isLowRes = false;
 }
 

@@ -127,12 +127,7 @@ public class Grabber : MonoBehaviour
 
     void ReleaseGrabWithInertia(bool applyThrowBoost)
     {
-        if (grabJoint != null)
-        {
-            Destroy(grabJoint);
-            grabJoint = null;
-            Debug.Log("Joint destruido.");
-        }
+        DestroyJoint();
 
         if (grabbedRigidbody != null)
         {
@@ -183,6 +178,15 @@ public class Grabber : MonoBehaviour
         if (audioSource != null && clip != null)
         {
             audioSource.PlayOneShot(clip);
+        }
+    }
+
+    public void DestroyJoint() {
+        if (grabJoint != null)
+        {
+            Destroy(grabJoint);
+            grabJoint = null;
+            Debug.Log("Joint destruido.");
         }
     }
 }

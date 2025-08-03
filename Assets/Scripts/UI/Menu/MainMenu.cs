@@ -9,7 +9,12 @@ public class MainMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (SceneManager.GetActiveScene().buildIndex==0) 
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
     }
 
     // Update is called once per frame

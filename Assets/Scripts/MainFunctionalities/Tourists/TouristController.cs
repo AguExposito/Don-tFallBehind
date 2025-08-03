@@ -331,6 +331,20 @@ public class TouristController : MonoBehaviour
         SetLayerRecursively(gameObject, 10);
         ragdollController.SetEnabled(true);
         dead.SetActive(true);
+
+        // Detener el NavMeshAgent
+        if (navAgent != null)
+        {
+            navAgent.isStopped = true;
+        }
+
+        // Detener las animaciones
+        if (animator != null)
+        {
+            animator.enabled = false;
+        }
+
+        playerTarget.GetComponent<Grabber>().DestroyJoint();
     }
 
     public void Resurrect()
