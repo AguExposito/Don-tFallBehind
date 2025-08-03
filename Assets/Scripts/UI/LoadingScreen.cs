@@ -12,7 +12,8 @@ public class LoadingScreen : MonoBehaviour
     void Start()
     {
         //by by button for now
-        continueButton.gameObject.SetActive(false);
+        if (continueButton != null)
+            continueButton.gameObject.SetActive(false);
         StartCoroutine(LoadSceneAsync());
     }
 
@@ -27,7 +28,8 @@ public class LoadingScreen : MonoBehaviour
             //hello button once operation done
             if (operation.progress >= 0.9f)
             {
-                continueButton.gameObject.SetActive(true);
+                if(continueButton!=null)
+                    continueButton.gameObject.SetActive(true);
             }
             if (continued == true)
             {

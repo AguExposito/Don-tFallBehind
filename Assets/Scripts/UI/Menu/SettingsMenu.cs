@@ -8,9 +8,9 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private Toggle lowResFilter;
     [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private Camera mainCamera; 
-    [SerializeField] private GameObject lowResScreen;
-    [SerializeField] private RenderTexture lowResTexture;
+    [SerializeField] private Camera[] mainCamera; 
+    [SerializeField] private GameObject[] lowResScreen;
+    [SerializeField] private RenderTexture[] lowResTexture;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,13 +40,19 @@ public class SettingsMenu : MonoBehaviour
         audioMixer.SetFloat("Master", Mathf.Log10(Settings.volumeLevel) * 20);
         if (Settings.isLowRes)
         {
-            lowResScreen.gameObject.SetActive(true);
-            mainCamera.targetTexture = lowResTexture; // Set the camera's render texture to the low resolution texture
+            for (int i = 0; i < lowResTexture.Length; i++)
+            {
+                lowResScreen[i].gameObject.SetActive(true);
+                mainCamera[i].targetTexture = lowResTexture[i]; // Set the camera's render texture to the low resolution texture
+            }
         }
         else
         {
-            mainCamera.targetTexture = null; // Disable the camera's render texture
-            lowResScreen.gameObject.SetActive(false);
+            for (int i = 0; i < lowResTexture.Length; i++)
+            {
+                mainCamera[i].targetTexture = null; // Disable the camera's render texture
+                lowResScreen[i].gameObject.SetActive(false);
+            }
         }
     }
 }

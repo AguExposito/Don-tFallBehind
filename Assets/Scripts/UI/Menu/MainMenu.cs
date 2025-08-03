@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex==0) 
+        if (SceneManager.GetActiveScene().buildIndex==1) 
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
     }
 
     //self explanatory
-    void Quit()
+    public void Quit()
     {
         Application.Quit();
     }

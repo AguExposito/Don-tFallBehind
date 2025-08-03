@@ -10,7 +10,8 @@ public class FPSController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] Camera playerCamera;
-    
+    [SerializeField] SettingsMenu settingsMenu;
+
 
     [Space]
     [Header("Inputs")]
@@ -44,7 +45,6 @@ public class FPSController : MonoBehaviour
     [SerializeField] CharacterController characterController;
     [SerializeField] HudController hudController;
     [SerializeField] MenuController screenUI;
-    [SerializeField] SettingsMenu settingsMenu;
 
     void Start()
     {
@@ -53,7 +53,6 @@ public class FPSController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         screenUI = transform.GetComponentInChildren<MenuController>(true);
-        settingsMenu = transform.GetComponentInChildren<SettingsMenu>(true);
     }
 
     void Update()
