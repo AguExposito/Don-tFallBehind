@@ -17,7 +17,6 @@ public class Grabber : MonoBehaviour
     [SerializeField] private AudioClip grabSound;
     [SerializeField] private AudioClip releaseSound;
     [SerializeField] private AudioClip throwSound;
-    [SerializeField] private AudioClip grabFailSound;
 
     private Rigidbody grabbedRigidbody;
     private ConfigurableJoint grabJoint;
@@ -111,11 +110,6 @@ public class Grabber : MonoBehaviour
                 // Play grab sound
                 PlaySound(grabSound);
             }
-        }
-        else
-        {
-            // Play grab fail sound when trying to grab but nothing is in range
-            PlaySound(grabFailSound);
         }
     }
 
