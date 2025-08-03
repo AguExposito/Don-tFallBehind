@@ -20,7 +20,7 @@ public class LoadingScreen : MonoBehaviour
     //loads scene but doesn display it
     IEnumerator LoadSceneAsync()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(0);
         operation.allowSceneActivation = false;
 
         while (!operation.isDone)
